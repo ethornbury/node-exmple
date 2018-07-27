@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title My App for Liam
+    link(rel='stylesheet', href='app.css', type='text/css')
+  body
+    .header
+      .imhold
+        img#theLogo.logiIm(alt='logo', src='/logo.png')
+      .navhold
+        .topnav
+          a(href='/') Home
+          a(href='/products.html') Products
+          a(href='/new-product.html') Add New Product
+    .row
+      .holder
+        h1
+          | Hi Add new product page!
+   
+ 
+        form(method="post")
+            fieldset
+               label(for="Name") Product Name:
+               input(name="name", type="text",placeholder="enter a product name")
+               label(for="Price") Book Price
+               input(name="price", type="text", placeholder="enter a selling price")
+               label(for="Image") Book Image:
+               input(name="image", type="text", placeholder="what image will this product have")
+               label(for="Activity") Book Activity:
+               input(name="activity", type="text", placeholder="what activity will this product have")
+               button.button(type="submit") Create New Product
+               
+     .footer
+      p
+        | Liam Made this Node JS Application  

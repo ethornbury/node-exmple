@@ -95,27 +95,28 @@ body {
     padding:5px;
     margin-left:10px;
     height: 610px;
+    color: red;
 }
 
 
 .large h1 {
     margin-bottom: 2px;    
-    font-size: 157px;
-    color: #ffffff;
+    font-size: 60px;
+    color: #af1d1d;
 }
 
 
 .large h2 {
     margin-top: 2px;
     margin-bottom: 2px;
-    font-size: 157px;
-    color: #ffffff;
+    font-size: 60px;
+    color: #af1d1d;
 }
 
 
 .normal h1 {
     margin-bottom: 2px;    
-    font-size: 87px;
+    font-size: 60px;
     color: #ffffff;
 }
 
@@ -123,14 +124,14 @@ body {
 .normal h2 {
     margin-top: 2px;
     margin-bottom: 2px;
-    font-size: 87px;
+    font-size: 60px;
     color: #ffffff;
 }
 
 
 .normal2 h1 {
     margin-bottom: 2px;    
-    font-size: 87px;
+    font-size: 50px;
     color: #ffffff;
 }
 
@@ -138,7 +139,7 @@ body {
 .normal2 h2 {
     margin-top: 2px;
     margin-bottom: 2px;
-    font-size: 87px;
+    font-size: 50px;
     color: #ffffff;
 }
 
