@@ -6,11 +6,11 @@ block content
         h1
           | Hi Add new product page!
    
- 
+        
         form(method="post" action="/new-product")
             fieldset
                label(for="Name") Product Name:
-               input(name="product[name]", type="text",placeholder="enter a product name")
+               input(name="name", type="text", placeholder="enter a product name")
                label(for="Price") Book Price
                input(name="price", type="text", placeholder="enter a selling price")
                label(for="Image") Book Image:

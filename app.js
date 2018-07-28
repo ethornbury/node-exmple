@@ -2,11 +2,14 @@ var express = require("express"); // call express to be used by the application.
 var app = express();
 const path = require('path');
 const VIEWS = path.join(__dirname, 'views');
-
+var bodyParser = require("body-parser");
+ 
 
 app.use(express.static("scripts")); // allow the application to access the scripts folder contents to use in the application
 app.use(express.static("images")); // allow the application to access the images folder contents to use in the application
 app.use(express.static("views")); // Allow access to content of views folder
+
+app.use(bodyParser.urlencoded({extended:true})); //place in general that which uses it
 
 //my gearhost MYSQL db credentials to create a connection
 var mysql = require('mysql');
@@ -37,20 +40,9 @@ app.get('/usertable', function(req, res){
 	  res.render('index.jade', {root: VIEWS});
 });
 
-// SQL create table Example
-app.get('/createitems', function(req, result) {
-  let sql = 'CREATE TABLE items ( Id int, Name varchar(255), Price varchar(255));';
-  let query = db.query(sql, (err, result) => {
-    if(err) throw err;
-    console.log("REsult for items table: " + result);
-  });
-  //result.send("Well done Emer, items table created...");
-  result.render('index.jade', {root: VIEWS});
-});
-
 
 // SQL create table Example
-app.get('/createproducts', function(req, res) {
+app.get('/create-products-table', function(req, res) {
   //let sql = 'DROP TABLE products;';
 
   let sql = 'CREATE TABLE products ( Id int NOT NULL AUTO_INCREMENT PRIMARY KEY, Name varchar(255), Price int, Image varchar(255), Activity varchar(255));'
@@ -61,13 +53,11 @@ app.get('/createproducts', function(req, res) {
     res.send("Well done products table created...");
 });
 
-app.get('/insertproduct', function(req, res) {
+app.get('/insert-product', function(req, res) {
   let sql = 'INSERT INTO products (Name, Price, Image, Activity) VALUES ("Polar M400", 199, "polarm400.png", "Running")'
     let query = db.query(sql, (err, res) => {
       if(err) throw err;
       console.log(res);
-      
-      
     });
   //res.send("Product Created and inserted to table...");
   res.render('products.jade', {root: VIEWS}); // use the render command so that the response object renders a HHTML page
@@ -79,7 +69,7 @@ app.get('/insertproduct', function(req, res) {
 
 app.post('/new-product', function(req, res) {
   
-  let sql = 'INSERT INTO products ( Name, Price, Image, Activity) VALUES ("'+req.product.body.name+'", "'+req.body.price+'", "'+req.body.image+'", "'+req.body.activity+'")'; 
+  let sql = 'INSERT INTO products ( Name, Price, Image, Activity) VALUES ("'+req.body.name+'", "'+req.body.price+'", "'+req.body.image+'", "'+req.body.activity+'")'; 
   let query = db.query(sql, (err, res) => {
     if(err) throw err;
     console.log(res);
@@ -88,17 +78,9 @@ app.post('/new-product', function(req, res) {
   
 });
 
-app.get('/showme', function(req, res) {
-  let sql = 'SELECT * FROM products;'; 
-  let query = db.query(sql, (err, res) => {
-    if(err) throw err;
-    console.log(res);
-  });
-  res.send("Look in console");
-});
 
-app.get('/sproducts', function(req, res){
- let sql = 'SELECT * FROM products'
+app.get('/products', function(req, res){
+ let sql = 'SELECT * FROM products';
  let query = db.query(sql, (err, res1) => {
     if(err) throw err;
     res.render('products.jade', {root: VIEWS,res1});
@@ -110,8 +92,8 @@ app.get('/sproducts', function(req, res){
 
 // function to render the products page
 app.get('/show/:id', function(req, res){
- let sql = 'SELECT * FROM products WHERE Id = "'+req.params.id+'"'
-  let query = db.query(sql, (err, res1) => {
+ let sql = 'SELECT * FROM products WHERE Id = "'+req.params.id+'"';
+ let query = db.query(sql, (err, res1) => {
     if(err) throw err;
     console.log(res1);
     res.render('show', {root: VIEWS,res1});

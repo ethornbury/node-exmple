@@ -1,4 +1,4 @@
-extends ./layout.jade
+extends layout
 
 block content 
     .row
@@ -9,6 +9,7 @@ block content
         
       .grid-container
           each row in res1
-            li=res1
+            p #{row.Name}
+            p €#{row.Price}
               
                 
