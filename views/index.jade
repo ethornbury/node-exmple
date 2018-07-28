@@ -1,18 +1,6 @@
-doctype html
-html
-  head
-    title App from Liam
-    link(rel='stylesheet', href='app.css', type='text/css')
-  body
-    .header
-      .imhold
-        img#theLogo.logiIm(alt='logo', src='/logo.png')
-      .navhold
-        .topnav
-          a(href='/') Home
-          a(href='/products') Products
-          a(href='#') Add New Product
-          a(href='https://www.google.ie/') Google
+extends ./layout.jade
+
+block content   
     .row
       .holder
         .large
@@ -24,6 +12,6 @@ html
         .normal2
           h1 Cycling
           h2 Accessories
-    .footer
-      p
-        | Liam Made this Node JS Application
+  
+
+  

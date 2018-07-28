@@ -3,17 +3,12 @@ body {
     background-image: url("/fitness.jpg");
     background-repeat:no-repeat;
     background-size:100% 100%;
-  text-align: center;
+    text-align: center;
     min-height:900px; /* we will remove this later */
 }
 
-
-
-
-
 .logiIm {
     width: 60%;
-    
     
 }  
 
@@ -98,13 +93,11 @@ body {
     color: red;
 }
 
-
 .large h1 {
     margin-bottom: 2px;    
     font-size: 60px;
     color: #af1d1d;
 }
-
 
 .large h2 {
     margin-top: 2px;
@@ -113,13 +106,11 @@ body {
     color: #af1d1d;
 }
 
-
 .normal h1 {
     margin-bottom: 2px;    
     font-size: 60px;
     color: #ffffff;
 }
-
 
 .normal h2 {
     margin-top: 2px;
@@ -128,13 +119,11 @@ body {
     color: #ffffff;
 }
 
-
 .normal2 h1 {
     margin-bottom: 2px;    
     font-size: 50px;
     color: #ffffff;
 }
-
 
 .normal2 h2 {
     margin-top: 2px;
@@ -157,14 +146,14 @@ body {
 
 .normal2 {
     width: 30%;
-     background-image: url('/cycling.jpg');
-      background-repeat:no-repeat;
+    background-image: url('/cycling.jpg');
+    background-repeat:no-repeat;
     background-size:cover;
     float: left;
-     padding:5px;
-     height: 300px;
-     margin-left:10px;
-     margin-bottom:10px;
+    padding: 5px ;
+    height: 300px;
+    margin-left:10px;
+    margin-bottom:10px;
 }
 
 /* Style the footer */
@@ -174,14 +163,11 @@ body {
     text-align: center;
 }
 
-
 .footer p{
     color: #ffffff;
 }
 
-
 /* Style for products page */
-
 
 .grid-container {
   display: grid;
@@ -197,17 +183,12 @@ body {
   background-color: rgba(255, 255, 255, 0.8);
   text-align: center;
   padding: 5px 0;
- 
 }
-
 
 #itemsContainer {
     width: 100%;
     text-align: center;
-    
-    
 }
-
 
 .itemtitle {
    display: block;
@@ -216,9 +197,7 @@ body {
     padding: 10px 10px;
     text-decoration: none;
     font-size: 25px
-    
 }
-
 
 .itemp {
    display: block;
@@ -227,19 +206,14 @@ body {
     padding: 4px 6px;
     text-decoration: none;
     font-size: 16px
-    
 }
-
-
 
 .pimage {
     width: 30%; 
     margin-left: auto; 
     margin-right: auto; 
     display: block;
-    
 }
-
 
 .button {
     background-color: #4CAF50;
@@ -254,8 +228,6 @@ body {
     cursor: pointer;
 }
 
-
-
 #itemsContainer h2 {
    display: block;
     color: #555;
@@ -263,9 +235,7 @@ body {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 20px
-    
 }
-
 
 #itemsContainer h1 {
    display: block;
@@ -273,24 +243,15 @@ body {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-   
-    
 }
-
 
 .itemhols {
-   margin: 10px;
-    
+    margin: 10px;
     display: inline-block;
     width: 100%;
-    
     min-height: 30px;
-  
-   background-color: #ffffff;
+    background-color: #ffffff;
 }
-
-
-
 
 /* End Style for products page */
 
@@ -330,3 +291,40 @@ input[type=submit]:hover {
 }
 
 /* End Style for form */
+
+.item {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 5px 0;
+}
+
+#itemsContainer {
+    width: 100%;
+    text-align: center;
+}
+
+
+.itemtitle {
+   display: block;
+    color: #4CAF50;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 25px
+}
+
+.itemp {
+   display: block;
+    color: #4CAF50;
+    text-align: center;
+    padding: 4px 6px;
+    text-decoration: none;
+    font-size: 16px
+}
+
+.pimage {
+    width: 30%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    display: block;
+}

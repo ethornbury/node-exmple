@@ -1,27 +1,16 @@
-doctype html
-html
-  head
-    title My App for Liam
-    link(rel='stylesheet', href='app.css', type='text/css')
-  body
-    .header
-      .imhold
-        img#theLogo.logiIm(alt='logo', src='/logo.png')
-      .navhold
-        .topnav
-          a(href='/') Home
-          a(href='/products.html') Products
-          a(href='/new-product.html') Add New Product
+extends ./layout.jade
+
+block content
     .row
       .holder
         h1
           | Hi Add new product page!
    
  
-        form(method="post")
+        form(method="post" action="/new-product")
             fieldset
                label(for="Name") Product Name:
-               input(name="name", type="text",placeholder="enter a product name")
+               input(name="product[name]", type="text",placeholder="enter a product name")
                label(for="Price") Book Price
                input(name="price", type="text", placeholder="enter a selling price")
                label(for="Image") Book Image:
@@ -30,6 +19,3 @@ html
                input(name="activity", type="text", placeholder="what activity will this product have")
                button.button(type="submit") Create New Product
                
-     .footer
-      p
-        | Liam Made this Node JS Application  

@@ -79,7 +79,7 @@ app.get('/insertproduct', function(req, res) {
 
 app.post('/new-product', function(req, res) {
   
-  let sql = 'INSERT INTO products ( Name, Price, Image, Activity) VALUES ("'+req.body.name+'", "'+req.body.price+'", "'+req.body.image+'", "'+req.body.activity+'")'; 
+  let sql = 'INSERT INTO products ( Name, Price, Image, Activity) VALUES ("'+req.product.body.name+'", "'+req.body.price+'", "'+req.body.image+'", "'+req.body.activity+'")'; 
   let query = db.query(sql, (err, res) => {
     if(err) throw err;
     console.log(res);
@@ -88,7 +88,7 @@ app.post('/new-product', function(req, res) {
   
 });
 
-app.get('/shoeme', function(req, res) {
+app.get('/showme', function(req, res) {
   let sql = 'SELECT * FROM products;'; 
   let query = db.query(sql, (err, res) => {
     if(err) throw err;
@@ -99,32 +99,41 @@ app.get('/shoeme', function(req, res) {
 
 app.get('/sproducts', function(req, res){
  let sql = 'SELECT * FROM products'
-  let query = db.query(sql, (err, res1) => {
-    if(err.fatal)
-            db.connect();
-
+ let query = db.query(sql, (err, res1) => {
+    if(err) throw err;
     res.render('products.jade', {root: VIEWS,res1});
+    //res.send(res1); //showa table contents but needs style
     console.log(res1);
   });
-  
   console.log("Now you are on the products page!");
 });
 
- 
-// function to set up a simple hello response 
+// function to render the products page
+app.get('/show/:id', function(req, res){
+ let sql = 'SELECT * FROM products WHERE Id = "'+req.params.id+'"'
+  let query = db.query(sql, (err, res1) => {
+    if(err) throw err;
+    console.log(res1);
+    res.render('show', {root: VIEWS,res1});
+  });
+  console.log("Now you are on the products page!");
+});
 
+
+ 
+// ------------------ functions to render views
 
 // function to render the home page
 app.get('/', function(req, res){
  // res.send("Hello cruel world!"); // This is commented out to allow the index view to be rendered
-  res.render('index.jade', {root: VIEWS});
+  res.render('index.jade', {root: VIEWS}); //render() will show the .jade as HTML
   console.log("Now you are home!");
 });
 
 // function to render the products page
 app.get('/products', function(req, res){
  // res.send("Hello cruel world!"); // This is commented out to allow the index view to be rendered
-  res.render('products.jade', {root: VIEWS}); // use the render command so that the response object renders a HHTML page
+  res.render('products.jade', {root: VIEWS}); // use the render command so that the response object renders as a HTML page
   console.log("Now you are on the products page!");
 });
 
@@ -135,9 +144,7 @@ app.get('/new-product', function(req, res){
 });
 
 
-
-
-// We need to set the requirements for the application to run
+// -------------------- We need to set the requirements for the application to run
 
 app.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0" , function(){
   console.log("App is Running ......... Yessssssssssssss!");
